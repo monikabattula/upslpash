@@ -224,7 +224,10 @@
 		
 		
 	}
-	init()
+	setTimeout(() => {
+		
+		init()
+	}, 5000);
 </script>
 
 <style scoped>
