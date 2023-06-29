@@ -21,7 +21,7 @@ export const useCatStore = defineStore('catStore', () => {
       const data = response.data
       console.log(data)
       if (data.status) {
-        localStorage.setItem('catData', JSON.stringify(data)
+        localStorage.setItem('catData', JSON.stringify(data))
         checkLocalStorage()
         console.log({ catBreeds })
       }
