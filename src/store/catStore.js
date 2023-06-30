@@ -3,8 +3,8 @@ import { ref, reactive } from 'vue'
 import axios from 'axios'
 export const useCatStore = defineStore('catStore', () => {
   //header for axios x-api-key
-  // const BASE_URL = 'http://192.168.0.120/imgUploader/public/'
-  const BASE_URL = 'https://desarrollogaren.000webhostapp.com/imgUploader/public/'
+  const BASE_URL = 'http://192.168.0.120/imgUploader/public/'
+  // const BASE_URL = 'https://desarrollogaren.000webhostapp.com/imgUploader/public/'
   const API_KEY =
     'live_ObalGqySYbvel2M4m7EmM8ZCP8wXPEQU5AweCqeIJgRVyiNBagAbqyV1gtz5G5oV'
   const catBreeds = reactive([
@@ -62,16 +62,38 @@ export const useCatStore = defineStore('catStore', () => {
   }
   const getTopSearch = async (idImages) => {
     const PATH = `${BASE_URL}api/getTopSearch`
-    try {
-      const response = await axios.post(PATH, { idImages })
-      const data = response.data
-      console.log(data)
-      if (data.status) {
-        topSearch.value = data.topSearchImages
-      }
-    } catch (error) {
-      console.log(error)
-    }
+    const API_URL = 'https://api.thecatapi.com/v1/images/'
+    const arrayPromesas = []
+    idImages.forEach(element=>{
+      const promesa = axios.get(API_URL+element.imgId)
+arrayPromesas.push(promesa)
+    })
+await Promise.all(arrayPromesas).then(res=>{
+  // console.log({res})
+  res.forEach(element=>{
+    let data = {
+      imgUrl: element.data.url,
+      name: element.data.breeds[0].name,
+      description: element.data.breeds[0].description,
+  }
+    
+    topSearch.value.push(data)
+  })
+}, reason => {
+  console.log(reason)
+})
+console.log('topSearch.value', topSearch.value)
+
+    // try {
+    //   const response = await axios.post(PATH, { idImages })
+    //   const data = response.data
+    //   console.log(data)
+    //   if (data.status) {
+    //     topSearch.value = data.topSearchImages
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    // }
   }
   return {
     getTopSearch,

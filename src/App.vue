@@ -32,7 +32,6 @@ const init = async () => {
 				idBreeds.push({ imgId: breed.reference_image_id, name: breed.name })
 			}
 		})
-    console.log({idBreeds})
 		useCat.getTopSearch(idBreeds)
 
     }, 5000);
