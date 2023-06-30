@@ -11,7 +11,7 @@
 import FooterApp from './layouts/FooterApp.vue';
 import HeaderAppVue from './layouts/HeaderApp.vue';
 	const useCat = useCatStore()
-  const topBreeds = ref([
+  const topBreeds = [
 		'Siamese',
 		'Persian',
 		'Maine Coon',
@@ -22,13 +22,13 @@ import HeaderAppVue from './layouts/HeaderApp.vue';
 		'Sphynx',
 		'Devon Rex',
 		'Himalayan',
-	])
+	]
 const init = async () => {
 		await useCat.checkLocalStorage()
     setTimeout(() => {
       let idBreeds = []
 		useCat.catBreeds.listOfBreeds.some((breed) => {
-			if (topBreeds.value.includes(breed.name)) {
+			if (topBreeds.includes(breed.name)) {
 				idBreeds.push({ imgId: breed.reference_image_id, name: breed.name })
 			}
 		})
