@@ -13,7 +13,19 @@ import HeaderAppVue from './layouts/HeaderApp.vue';
 	const useCat = useCatStore()
 
 const init = async () => {
-		useCat.checkLocalStorage()
+		await useCat.checkLocalStorage()
+    setTimeout(() => {
+      let idBreeds = []
+		useCat.catBreeds.listOfBreeds.some((breed) => {
+			if (topBreeds.value.includes(breed.name)) {
+				idBreeds.push({ imgId: breed.reference_image_id, name: breed.name })
+			}
+		})
+    console.log({idBreeds})
+		useCat.getTopSearch(idBreeds)
+
+    }, 5000);
+
 	}
   init()
 </script>

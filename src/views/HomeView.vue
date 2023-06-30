@@ -76,9 +76,9 @@
 			<v-card-text class="ma-10 pa-10">
 				<v-row>
 					<v-col cols="12">
-						<p class="text-h3 d-none d-sm-inline">66+ breeds For you</p>
+						<p class="text-h3 d-none d-sm-inline">66+ breeds For you</p><br>
 						<p class="text-h3 d-none d-sm-inline">to discover</p>
-						<p class="text-h5 d-sm-none">66+ breeds For you</p>
+						<p class="text-h5 d-sm-none">66+ breeds For you</p><br>
 						<p class="text-h5 d-sm-none">to discover</p>
 						<RouterLink to="/TopSearch" class="read d-none d-sm-inline mt-2">
 						<p class="text-right text-h6 mb-6 ">
@@ -210,24 +210,24 @@
 	])
 	const init = async () => {
 		isLoader.value = true
-		let idBreeds = []
-		useCat.catBreeds.listOfBreeds.some((breed) => {
-			if (topBreeds.value.includes(breed.name)) {
-				idBreeds.push({ imgId: breed.reference_image_id, name: breed.name })
-			}
-		})
+		// let idBreeds = []
+		// useCat.catBreeds.listOfBreeds.some((breed) => {
+		// 	if (topBreeds.value.includes(breed.name)) {
+		// 		idBreeds.push({ imgId: breed.reference_image_id, name: breed.name })
+		// 	}
+		// })
 		// console.log({idBreeds})
 		setTimeout(() => {
 			isLoader.value = false
 		}, 3000)
-		await useCat.getTopSearch(idBreeds)
+		// await useCat.getTopSearch(idBreeds)
 		
 		
 	}
-	setTimeout(() => {
+	
 		
 		init()
-	}, 5000);
+	
 </script>
 
 <style scoped>
