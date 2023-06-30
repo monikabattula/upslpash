@@ -3,8 +3,8 @@ import { ref, reactive } from 'vue'
 import axios from 'axios'
 export const useCatStore = defineStore('catStore', () => {
   //header for axios x-api-key
-  const BASE_URL = 'http://192.168.0.120/imgUploader/public/'
-  // const BASE_URL = 'https://desarrollogaren.000webhostapp.com/imgUploader/public/'
+  // const BASE_URL = 'http://192.168.0.120/imgUploader/public/'
+  const BASE_URL = 'https://desarrollogaren.000webhostapp.com/imgUploader/public/'
   const API_KEY =
     'live_ObalGqySYbvel2M4m7EmM8ZCP8wXPEQU5AweCqeIJgRVyiNBagAbqyV1gtz5G5oV'
   const catBreeds = reactive([
