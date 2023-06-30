@@ -11,7 +11,18 @@
 import FooterApp from './layouts/FooterApp.vue';
 import HeaderAppVue from './layouts/HeaderApp.vue';
 	const useCat = useCatStore()
-
+  const topBreeds = ref([
+		'Siamese',
+		'Persian',
+		'Maine Coon',
+		'Ragdoll',
+		'Bengal',
+		'Abyssinian',
+		'Birman',
+		'Sphynx',
+		'Devon Rex',
+		'Himalayan',
+	])
 const init = async () => {
 		await useCat.checkLocalStorage()
     setTimeout(() => {
