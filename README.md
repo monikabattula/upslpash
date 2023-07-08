@@ -72,7 +72,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Julio-Campos-Swork/wikicat
+$ git clone https://github.com/monikabattula/wikicat
 
 # Install dependencies
 $ npm install
@@ -89,6 +89,3 @@ $ npm run dev
 - [Node.js](https://nodejs.org/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 
-## Contact
-
-- GitHub [@your-username](https://github.com/Julio-Campos-Swork/)
